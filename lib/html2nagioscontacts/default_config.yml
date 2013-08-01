@@ -1,0 +1,31 @@
+# default_config.yml
+#
+# This is the default config file which will be loaded first
+
+# Drop the privilidges to a specific user?
+# This is mostly useful if run as root (eg from init or cron)
+drop_privilidges: true
+drop_privilidges_user: nagios
+
+# If this option is set to true nagios will be restarted with the restart command after the config has been updated.
+# The check_nagios_cinfig command will be executed before that to mage sure the nagios config is OK
+restart_nagios_after_update: false
+
+# The path where the generated config file will be saved
+generated_contacts_path: /etc/nagios3/conf.d/contacts_generated.cfg
+
+commands:
+  check_nagios_config: sudo nagios3 /etc/nagios3/nagios.cfg
+  restart_nagios: sudo /etc/init.d/nagios3 restart
+
+
+parser:
+  # Use HTTP Basic auth?
+  use_auth: false
+  auth_user: nagios
+  auth_pass: mysupercoolpassword
+  # The regular expressions the parser uses to extract names and email adresses
+  # All but the last rule must only contain one matchgroup
+  rules:
+    - !ruby/regexp '/<h2.*?Contact List.*?<\/h2>.*?<ul.*?>(.+?)<\/ul>/im'
+    - !ruby/regexp '/<li>(.+?)\s*,\s*(.+?)<\/li>/im'
