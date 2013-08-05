@@ -12,7 +12,7 @@ drop_privilidges_user: nagios
 restart_nagios_after_update: false
 
 # The path where the generated config file will be saved
-generated_contacts_path: /etc/nagios3/conf.d/contacts_generated.cfg
+generated_contacts_path: contacts_generated.cfg
 
 commands:
   check_nagios_config: sudo nagios3 /etc/nagios3/nagios.cfg
@@ -20,6 +20,7 @@ commands:
 
 
 parser:
+  url: http://localhost
   # Use HTTP Basic auth?
   use_auth: false
   auth_user: nagios

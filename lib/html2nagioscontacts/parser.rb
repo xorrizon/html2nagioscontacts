@@ -59,11 +59,11 @@ module Html2nagioscontacts
 
     def load_url
       params = {}
-      if Settings.parser['use_auth']
+      if Settings.parser['use_auth'] == true
         params = {:http_basic_authentication => [ Settings.parser['auth_user'], Settings.parser['auth_pass'] ]}
       end
 
-      open(@url, *params) do |f|
+      open(@url, params) do |f|
         @text = f.read
       end
 
