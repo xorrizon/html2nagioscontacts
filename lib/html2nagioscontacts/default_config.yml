@@ -4,8 +4,8 @@
 
 # Drop the privilidges to a specific user?
 # This is mostly useful if run as root (eg from init or cron)
-drop_privilidges: true
-drop_privilidges_user: nagios
+drop_privileges: true
+drop_privileges_user: nagios
 
 # If this option is set to true nagios will be restarted with the restart command after the config has been updated.
 # The check_nagios_cinfig command will be executed before that to mage sure the nagios config is OK

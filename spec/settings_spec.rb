@@ -9,15 +9,15 @@ module Html2nagioscontacts
     end
 
     it 'should have dynamic methods' do
-      Settings._settings['drop_privilidges'].should_not be_nil
+      Settings._settings['drop_privileges'].should_not be_nil
 
-      Settings.drop_privilidges.should_not be_nil
+      Settings.drop_privileges.should_not be_nil
     end
 
     it 'should load the default_config' do
       Settings._settings.should_not be_nil
-      Settings.drop_privilidges.should be_true
-      Settings.drop_privilidges_user.should eq("nagios")
+      Settings.drop_privileges.should be_true
+      Settings.drop_privileges_user.should eq("nagios")
     end
   end
 
