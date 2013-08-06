@@ -9,7 +9,7 @@ module Html2nagioscontacts
 
   def self.usage
     puts <<-EOS
-  USAGE: #{__FILE__} configfile
+  USAGE: #{File.basename(__FILE__)} configfile
     configfile: The path to the config file
                 A default configfile you can use as a template is
                 located at: #{File.expand_path(File.join( File.dirname(__FILE__), '../lib/html2nagioscontacts/default_config.yml' ))}
