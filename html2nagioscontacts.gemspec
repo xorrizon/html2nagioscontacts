@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Html2nagioscontacts::VERSION
   spec.authors       = ["xorrizon"]
   spec.email         = ["xorrizon@gmail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = %q{A small tool to parse an HTML list and output a nagios contacts config file}
+  spec.summary       = %q{A small tool to parse an HTML list and output a nagios contacts config file}
   spec.homepage      = ""
   spec.license       = "MIT"
 
