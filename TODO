@@ -1,13 +1,12 @@
 
 Not yet implemented but planned features:
 
-    * Drop privileges
-    * Check if the config file has actually changed before writing to it
     * Restart nagios (if config has changed)
-    * Execute nagios config check to make sure the config files are correct befor restarting nagios
+    * Execute nagios config check to make sure the config files are correct before restarting nagios
     * Logfiles
 
 Features under consideration:
+    * Drop privileges
     * Some way for nagios to check if this tool has been run in the last x hours
     * Some way for nagios to check if there where errors in the last run
 
