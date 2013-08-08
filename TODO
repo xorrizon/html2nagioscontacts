@@ -1,8 +1,6 @@
 
 Not yet implemented but planned features:
 
-    * Restart nagios (if config has changed)
-    * Execute nagios config check to make sure the config files are correct before restarting nagios
     * Logfiles
 
 Features under consideration:

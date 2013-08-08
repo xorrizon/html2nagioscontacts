@@ -31,8 +31,11 @@ module Html2nagioscontacts
     end
 
     def method_missing(name, *args, &block)
-      @_settings[name.to_s] ||
-          fail(NoMethodError, "unknown configuration root #{name}", caller)
+      if @_settings[name.to_s].nil?
+        fail(NoMethodError, "unknown configuration root #{name}", caller)
+      else
+        @_settings[name.to_s]
+      end
     end
 
     load_default if @_settings.nil?

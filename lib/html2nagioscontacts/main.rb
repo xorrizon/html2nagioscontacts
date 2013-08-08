@@ -21,7 +21,7 @@ module Html2nagioscontacts
       configfile = args.shift
 
       unless File.exists? configfile
-        logger.error "Config file does not exist"
+        logger.error 'Config file does not exist'
         return 2
       end
 
@@ -49,14 +49,35 @@ module Html2nagioscontacts
         end
 
         if output.gsub(/#.*?$/, '') == output_old.gsub(/#.*?$/, '')
-          logger.info "Nothing changed in config file, exiting"
+          logger.info 'Nothing changed in config file, exiting'
           return 0
         end
 
         File.write Settings.generated_contacts_path, output
+        logger.info 'Wrote config file'
+
+        return 0 unless Settings.restart_nagios_after_update
+
+        out = `#{Settings.commands['check_nagios_config']}`
+        if $?.success?
+          logger.info 'Nagios config check passed'
+        else
+          logger.error 'Nagios config check failed!'
+          logger.error out
+          return 4
+        end
+
+        out = `#{Settings.commands['restart_nagios']}`
+        if $?.success?
+          logger.info 'Nagios restarted'
+        else
+          logger.error 'Nagios restart failed'
+          logger.error out
+          return 5
+        end
 
       rescue Exception => e
-        logger.fatal "An unhandeled error occured: " + e.message
+        logger.fatal 'An unhandled error occurred: ' + e.message
         logger.fatal e.backtrace.join("\n")
         return 42
       end

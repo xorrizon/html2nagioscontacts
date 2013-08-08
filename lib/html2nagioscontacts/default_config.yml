@@ -10,8 +10,8 @@ restart_nagios_after_update: false
 generated_contacts_path: contacts_generated.cfg
 
 commands:
-  check_nagios_config: sudo nagios3 /etc/nagios3/nagios.cfg
-  restart_nagios: sudo /etc/init.d/nagios3 restart
+  check_nagios_config: nagios3 -v /etc/nagios3/nagios.cfg 2>&1
+  restart_nagios: sudo -n /etc/init.d/nagios3 restart 2>&1
 
 
 parser:
