@@ -3,7 +3,7 @@
 # This is the default config file which will be loaded first
 
 # If this option is set to true nagios will be restarted with the restart command after the config has been updated.
-# The check_nagios_cinfig command will be executed before that to mage sure the nagios config is OK
+# The check_nagios_config command will be executed before that to make sure the nagios config is OK
 restart_nagios_after_update: false
 
 # The path where the generated config file will be saved
