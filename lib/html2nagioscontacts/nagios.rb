@@ -9,7 +9,7 @@ module Html2nagioscontacts
     def create_contacts(source)
       builder = NagiosConfig::Builder.new
       source.each do |c|
-        builder.define "Contact" do |contact|
+        builder.define "contact" do |contact|
           contact.use = 'generic-contact'
           contact.contact_name = c['name']
           contact.alias = c['alias']
